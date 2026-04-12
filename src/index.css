@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg: var(--background);
+  --color-sidebar: var(--sidebar-bg);
+  --color-surface: var(--surface);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-active: var(--active);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-hover: var(--hover);
+  --color-row-hover: var(--row-hover);
+  --color-icon: var(--icon);
+  
+  --radius-btn: var(--radius-btn);
+  --radius-card: var(--radius-card);
+  
+  --shadow-btn: var(--shadow-btn);
+  --shadow-card: var(--shadow-card);
+  --shadow-header: var(--shadow-header);
+  
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Poppins', sans-serif;
+}
+
+:root {
+  --background: #FFFFFF;
+  --sidebar-bg: #ffffff;
+  --surface: #ffffff;
+  --primary: #222222;
+  --secondary: #6B7280;
+  --muted: #9CA3AF;
+  --active: #FF2E88;
+  --accent: #C9A227;
+  --border: #E8D9A8;
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --topbar-bg: #ffffff;
+  --hover: #F9FAF7;
+  --row-hover: #F9FAF7;
+  --icon: #4B5563;
+  
+  --primary-color: #FF2E88;
+  --radius-btn: 6px;
+  --radius-card: 6px;
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.05);
+  --shadow-header: 0 1px 3px rgba(0,0,0,0.05);
+  --anim-speed: 0.3s;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Force light mode */
+html, body {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Disable dark mode completely */
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+}
+
+/* Override All Dark Backgrounds */
+.dark,
+[class*="dark"],
+.bg-dark,
+.bg-black,
+[class*="bg-[#0B1120]"],
+.bg-card {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Override dark theme specific utilities */
+[class*="bg-white/"] {
+  background-color: #f3f4f6 !important; /* Tailwind gray-100 */
+}
+
+[class*="border-white/"] {
+  border-color: #e5e7eb !important; /* Tailwind gray-200 */
+}
+
+[class*="text-[#EAEAEA]"] {
+  color: #111827 !important; /* Tailwind gray-900 */
+}
+
+/* Fix Specific Sections */
+.main-container,
+.content-wrapper,
+.notification-center {
+  background-color: #ffffff !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.text-base { font-size: 15px; }
+.text-sm { font-size: 13px; }
+.text-label { font-size: 14px; font-weight: 500; }
+.text-input { font-size: 15px; }
+.text-btn { font-size: 16px; font-weight: 700; }
+.text-section { font-size: 22px; font-weight: 700; }
+.text-page { font-size: 24px; font-weight: 700; }
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #E5E7EB;
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #D1D5DB;
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Bottom Navigation Styles */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+.nav-item {
+  border: none;
+  background: none;
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.nav-item.active {
+  color: #6C4EFF;
+  font-weight: 600;
+}
+
+/* Premium Checkout Button */
+.checkout-btn {
+  width: 80%;
+  margin: 10px auto;
+  display: block;
+  padding: 12px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff7a00, #ff9a3c);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 4px 12px rgba(255,122,0,0.3);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.checkout-btn:hover {
+  transform: scale(1.03);
+}
+
+/* Remove Fixed Checkout Bar */
+.fixed-checkout,
+.sticky-order-bar {
+  display: none !important;
+}
