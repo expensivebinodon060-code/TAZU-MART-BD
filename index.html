@@ -2,14 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TAZU MART BD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAZU MART BD - Premium SaaS Dashboard</title>
+  <meta name="description" content="A premium dark SaaS ecommerce customer dashboard for TAZU MART BD with Google OAuth, manual authentication, and real-time order tracking.">
+  <meta name="theme-color" content="#6C4EFF">
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
   <h1>TAZU MART BD</h1>
-  <div id="app">Loading...</div>
-  <!-- Vite entry point -->
-  <script type="module" src="src/main.tsx"></script>
+  
+  <!-- Main App Container (Clean for Production) -->
+  <div id="app"></div>
+
+  <!-- Vite standard entry point (Handles production bundling) -->
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
